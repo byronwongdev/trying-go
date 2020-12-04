@@ -6,10 +6,15 @@ import (
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Whoa, Go!")
+	fmt.Fprintf(w, "Whoa, Go!")
+}
+
+func aboutHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Expert web design")
 }
 
 func main() {
 	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/about", aboutHandler)
 	http.ListenAndServe(":8000", nil)
 }
